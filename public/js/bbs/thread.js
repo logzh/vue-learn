@@ -7,6 +7,8 @@ import Thread from '../component/thread';
 
 import $ from 'zepto';
 
+require('../../css/bbs/thread.css');
+
 let props = JSON.parse(document.getElementById('props').innerHTML);
 let mountNode = document.getElementById('example');
 let element = React.createElement(Thread, props);
