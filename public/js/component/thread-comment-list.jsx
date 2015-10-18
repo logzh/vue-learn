@@ -1,7 +1,6 @@
 import React from 'react';
 import Comment from './comment';
 import $ from 'zepto';
-import Immutable from 'immutable';
 
 let CommentList = React.createClass({
     propTypes: {
