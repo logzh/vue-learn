@@ -1,0 +1,109 @@
+<% layout('layout') -%>
+<link rel="stylesheet" type="text/css" href="http://wwq.qq.com/css/frozenui/1.2.1/css/global.css?v=960">
+<link rel="stylesheet" type="text/css" href="http://wwq.qq.com/css/common.css?v=960">
+<link rel="stylesheet" type="text/css" href="http://wwq.qq.com/css/community.css?v=960">
+<style>
+    .article-send .send-btn button {
+        display: block;
+        text-align: center;
+    }
+
+    .item-main .pic,
+    .item-main img:not(.emotion) {
+        width: 100%;
+        height: auto;
+    }
+
+    .item-main .emotion {
+        width: 28px;
+        height: 28px;
+        vertical-align: middle;
+    }
+
+    .article-comments li:last-child {
+        border-bottom: none;
+    }
+
+    .pull-loading {
+        height: 40px;
+        vertical-align: top;
+        text-align: center;
+    }
+
+    .pull-loading p {
+        line-height: 40px;
+        color: #a5a5a5;
+    }
+
+    #emotion {
+        width: 312px;
+        margin: 15px auto 0;
+    }
+
+    .ui-slider-content > li {
+        width: 312px;
+        height: 117px;
+    }
+
+    .ui-slider-content > li.a1 {
+        background: url(/images/emotion/expressImgA1.png) no-repeat;
+        background-size: 312px auto;
+    }
+
+    .ui-slider-content > li.a2 {
+        background: url(/images/emotion/expressImgA2.png) no-repeat;
+        background-size: 312px auto;
+    }
+
+    .ui-slider-content > li.a3 {
+        background: url(/images/emotion/expressImgA3.png) no-repeat;
+        background-size: 312px auto;
+    }
+
+    .ui-slider-content > li.a4 {
+        background: url(/images/emotion/expressImgA4.png) no-repeat;
+        background-size: 312px auto;
+    }
+
+    .ui-slider-content > li.a5 {
+        background: url(/images/emotion/expressImgA5.png) no-repeat;
+        background-size: 312px auto;
+    }
+
+    .ui-slider-content > li > a {
+        width: 44px;
+        height: 39px;
+        display: block;
+        float: left;
+    }
+
+    .ui-slider-content > li > a.on {
+        background-color: #000000;
+        opacity: 0.3;
+    }
+
+    .ui-slider-indicators {
+        right: 138px;
+    }
+
+    .ui-slider-indicators li.current:before {
+        background-color: #c4c4c5;
+    }
+
+    #share-message, #box-comment {
+        display: none;
+    }
+
+    .comment-main .at {
+        padding-right: 6px;
+        color: #29c2ff;
+    }
+</style>
+
+<div id="example"></div>
+<script id="props" type="application/json">
+    <%- props %>
+</script>
+
+<script type="text/javascript" src="/build/common.js" charset="utf-8"></script>
+<script type="text/javascript" src="/build/thread.bundle.js" charset="utf-8"></script>

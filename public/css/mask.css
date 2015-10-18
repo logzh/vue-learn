@@ -1,0 +1,21 @@
+.wwq-mask{
+    background-color: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    z-index: 97;
+}
+.wx-share-tips {
+    width: 212px;
+    height: 118px;
+    background: url(../images/share-box.png) no-repeat;
+    background-size: 212px 118px;
+    top: 5px;
+    right: 21px;
+    z-index: 999;
+    position: fixed;
+}
