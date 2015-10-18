@@ -14,7 +14,7 @@ var Mock = require('mockjs');
 /* GET bbs page. */
 router.get('/', function (req, res, next) {
 
-    //var ThreadComponent = require('../component_server/thread.jsx');
+    //var ThreadComponent = require('../public/js/component/thread.jsx');
     //var html = ReactDomServer.renderToString(
     //    React.createElement(ThreadComponent, props)
     //);
