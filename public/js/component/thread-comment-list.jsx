@@ -1,6 +1,7 @@
 import React from 'react';
 import Comment from './comment';
 import $ from 'zepto';
+import Request from 'superagent';
 
 let CommentList = React.createClass({
     propTypes: {
@@ -36,12 +37,10 @@ let CommentList = React.createClass({
     },
     getComment() {
         var nextPage = this.state.page + 1;
-        $.get(this.state.url + "?page=" + this.state.page + "&threadId=" + this.state.threadId, function (result) {
-            if (this.isMounted()) {
-
-
+        Request.get(this.state.url + "?page=" + this.state.page + "&threadId=" + this.state.threadId).end(function (err, res) {
+            if (!err && this.isMounted()) {
                 this.setState({
-                    posts: this.state.posts.concat(result.posts),
+                    posts: this.state.posts.concat(res.body.posts),
                     isLoading: false,
                     page: nextPage
                 });

@@ -3,7 +3,7 @@ import ThreadAuthor from './thread-author';
 import ThreadCommentList from './thread-comment-list';
 import CommentDialog from './comment-dialog';
 import ShareMask from './share-mask';
-import $ from 'zepto';
+import Request from 'superagent';
 
 let ThreadTitle = React.createClass({
     propTypes: {
@@ -58,11 +58,11 @@ let ThreadPraise = React.createClass({
         }
     },
     handlePraise() {
-        $.get(this.state.url + '?threadId=' + this.state.threadId, function (res) {
-            if (res.err_code == 0) {
+        Request.get(this.state.url + '?threadId=' + this.state.threadId).end(function (err, res) {
+            if (!err && res.body.err_code == 0) {
                 this.setState({
-                    isPraised: res.data.isPraise,
-                    praises: res.data.praises
+                    isPraised: res.body.data.isPraise,
+                    praises: res.body.data.praises
                 })
             } else {
 
@@ -96,18 +96,6 @@ let ThreadPost = React.createClass({
             url: '/bbs/thread/post',
             clickHandle: this.props.clickHandle
         }
-    },
-    handlePost() {
-        $.get(this.state.url + '?threadId=' + this.state.threadId, function (res) {
-            if (res.err_code == 0) {
-                this.setState({
-                    isPosted: res.data.isPosted,
-                    posts: res.data.posts
-                })
-            } else {
-
-            }
-        }.bind(this));
     },
     render() {
         return (
