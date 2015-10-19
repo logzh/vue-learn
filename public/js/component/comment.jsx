@@ -1,7 +1,6 @@
 import React from 'react';
-import CommentHead from './comment-head'
-import CommentContent from './comment-content'
-import $ from 'zepto';
+import CommentHead from './comment-head';
+import CommentContent from './comment-content';
 
 var Comment = React.createClass({
     propTypes: {

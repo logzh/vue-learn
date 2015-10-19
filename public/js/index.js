@@ -40,7 +40,8 @@ const wwq = {
 
 // deprecate wwq.confirm
 wwq.confirm = require('util-deprecate')(wwq.confirm, 'wwq.confirm() is deprecated, use wwq.Modal.confirm() instead');
+wwq.version = require('./package.json').version;
 
 module.exports = wwq;
 
-wwq.version = require('./package.json').version;
+
