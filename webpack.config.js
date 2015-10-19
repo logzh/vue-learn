@@ -12,13 +12,15 @@ module.exports = {
     },
     output: {
         path: path.join(process.cwd(), 'public/build/'),
-        filename: '[name].bundle.js'
+        filename: '[name].bundle.js',
+        publicPath:'build/'//http://mycdn/asset/
         //sourceMapFilename: '[file].map',
         //chunkFilename: "[chunkhash].bundle.js"
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],
-        alias: { zepto: "../lib/zepto.js" }
+        root:path.join(process.cwd(), 'public/js/'),
+        alias: { zepto: "lib/zepto.js" }
     },
     module: {
         loaders: [{
