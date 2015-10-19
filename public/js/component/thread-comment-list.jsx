@@ -38,6 +38,8 @@ let CommentList = React.createClass({
     getComment() {
         var nextPage = this.state.page + 1;
         Request.get(this.state.url + "?page=" + this.state.page + "&threadId=" + this.state.threadId).end(function (err, res) {
+            if (err) throw err;
+
             if (!err && this.isMounted()) {
                 this.setState({
                     posts: this.state.posts.concat(res.body.posts),

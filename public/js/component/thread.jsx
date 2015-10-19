@@ -59,6 +59,8 @@ let ThreadPraise = React.createClass({
     },
     handlePraise() {
         Request.get(this.state.url + '?threadId=' + this.state.threadId).end(function (err, res) {
+            if (err) throw err;
+
             if (!err && res.body.err_code == 0) {
                 this.setState({
                     isPraised: res.body.data.isPraise,
