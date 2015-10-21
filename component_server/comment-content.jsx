@@ -1,23 +1,17 @@
 import React from 'react';
 
-let CommentContent = React.createClass({
-    propTypes:{
-        post:React.PropTypes.object
-    },
-    getInitialState () {
-        return {
-            post: this.props.post
-        }
-    },
-    render: function () {
-        var atHtml = '';
-        if (this.state.post.replyAuthor) {
-            atHtml = '<span class="at">@' + this.state.post.replyAuthor + '</span>';
-        }
-        return (
-            <div className="comment-main" dangerouslySetInnerHTML={{__html: atHtml + this.state.post.content}}></div>
-        );
+const CommentContent = (props) => {
+    var atHtml = '';
+    if (props.post.replyAuthor) {
+        atHtml = `<span class="at">@${props.post.replyAuthor}</span>`; //es6 string template
     }
-});
+    return (
+        <div className="comment-main" dangerouslySetInnerHTML={{__html: atHtml + props.post.content}}></div>
+    );
+};
+
+CommentContent.propTypes = {
+    post: React.PropTypes.object
+};
 
 module.exports = CommentContent;

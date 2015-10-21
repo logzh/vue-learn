@@ -1,5 +1,6 @@
 import React from 'react';
 import Mask from './mask';
+
 // todo require css
 let ShareMask = React.createClass({
     propTypes: {

@@ -1,18 +1,17 @@
 import React from 'react';
-import CommentHead from './comment-head'
-import CommentContent from './comment-content'
-import $ from 'zepto';
+import CommentHead from './comment-head';
+import CommentContent from './comment-content';
 
 var Comment = React.createClass({
     propTypes: {
         post: React.PropTypes.object
     },
-    getInitialState: function () {
+    getInitialState () {
         return {
             post: this.props.post
         }
     },
-    render: function () {
+    render () {
         return (
             <li className="clearfix list-item">
                 <CommentHead post={this.state.post}/>

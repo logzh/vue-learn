@@ -1,51 +1,40 @@
 import React from 'react';
 import ThreadAuthor from './thread-author';
-import ThreadCommentList from './thread-comment-list';
+//import ThreadCommentList from './thread-comment-list';
 import CommentDialog from './comment-dialog';
 import ShareMask from './share-mask';
-import $ from 'zepto';
+import Request from 'superagent';
 
-let ThreadTitle = React.createClass({
-    propTypes: {
-        title: React.PropTypes.string
-    },
-    getInitialState() {
-        return {
-            title: this.props.title
-        }
-    },
-    render() {
-        return (
-            <div className="item-tit">
-                <p>
-                    {this.state.title}
-                </p>
-            </div>
-        );
-    }
-});
+const ThreadTitle = (props) => {
+    return (
+        <div className="item-tit">
+            <p>
+                {props.title}
+            </p>
+        </div>
+    );
+};
 
-let ThreadContent = React.createClass({
-    propTypes: {
-        content: React.PropTypes.string
-    },
-    getInitialState() {
-        return {
-            content: this.props.content
-        }
-    },
-    render() {
-        return (
-            <div className="item-main">
-                <div className="art-words" dangerouslySetInnerHTML={{__html: this.state.content}}></div>
-            </div>
-        );
-    }
-});
+ThreadTitle.propTypes = {
+    title: React.PropTypes.string
+};
+
+
+const ThreadContent = (props) => {
+    return (
+        <div className="item-main">
+            <div className="art-words" dangerouslySetInnerHTML={{__html: props.content}}></div>
+        </div>
+    );
+};
+
+ThreadContent.propTypes = {
+    content: React.PropTypes.string
+};
 
 let ThreadPraise = React.createClass({
     propTypes: {
-        threadId:React.PropTypes.number,
+        threadId: React.PropTypes.number,
         praises: React.PropTypes.number,
         isPraised: React.PropTypes.bool
     },
@@ -58,11 +47,13 @@ let ThreadPraise = React.createClass({
         }
     },
     handlePraise() {
-        $.get(this.state.url + '?threadId=' + this.state.threadId, function (res) {
-            if (res.err_code == 0) {
+        Request.get(this.state.url + '?threadId=' + this.state.threadId).end(function (err, res) {
+            if (err) throw err;
+
+            if (!err && res.body.err_code == 0) {
                 this.setState({
-                    isPraised: res.data.isPraise,
-                    praises: res.data.praises
+                    isPraised: res.body.data.isPraise,
+                    praises: res.body.data.praises
                 })
             } else {
 
@@ -83,7 +74,7 @@ let ThreadPraise = React.createClass({
 
 let ThreadPost = React.createClass({
     propTypes: {
-        threadId:React.PropTypes.number,
+        threadId: React.PropTypes.number,
         posts: React.PropTypes.number,
         isPosted: React.PropTypes.bool,
         clickHandle: React.PropTypes.func.isRequired
@@ -96,18 +87,6 @@ let ThreadPost = React.createClass({
             url: '/bbs/thread/post',
             clickHandle: this.props.clickHandle
         }
-    },
-    handlePost() {
-        $.get(this.state.url + '?threadId=' + this.state.threadId, function (res) {
-            if (res.err_code == 0) {
-                this.setState({
-                    isPosted: res.data.isPosted,
-                    posts: res.data.posts
-                })
-            } else {
-
-            }
-        }.bind(this));
     },
     render() {
         return (
@@ -122,7 +101,7 @@ let ThreadPost = React.createClass({
 
 let Thread = React.createClass({
     propTypes: {
-        thread:React.PropTypes.object,
+        thread: React.PropTypes.object,
         posts: React.PropTypes.array,
         showCommentDialog: React.PropTypes.bool,
         showShareMask: React.PropTypes.bool
@@ -147,11 +126,11 @@ let Thread = React.createClass({
     },
     showShareMask(){
         this.setState({
-            showShareMask:true
+            showShareMask: true
         });
-    },hideShareMask(){
+    }, hideShareMask(){
         this.setState({
-            showShareMask:false
+            showShareMask: false
         });
     },
     render() {
@@ -164,28 +143,6 @@ let Thread = React.createClass({
                     <ThreadTitle title={this.state.thread.title}/>
                     <ThreadContent content={this.state.thread.content}/>
                 </div>
-                <ThreadCommentList threadId={this.state.thread.id} posts={this.state.posts}/>
-
-                <div className="article-operate">
-                    <ul className="clearfix">
-                        <ThreadPraise
-                            threadId={this.state.thread.id}
-                            praises={this.state.thread.praises}
-                            isPraised={this.state.thread.isPraised} />
-
-                        <ThreadPost
-                            threadId={this.state.thread.id}
-                            posts={this.state.thread.posts}
-                            isPosted={this.state.thread.isPosted}
-                            clickHandle={this.showCommentDialog} />
-                        <li className="tap-forward" onClick={this.showShareMask}><a className="forward"><i></i>转发</a></li>
-                    </ul>
-                </div >
-                { this.state.showShareMask ?
-                    <ShareMask onHide={this.hideShareMask} /> : null }
-                { this.state.showCommentDialog ?
-                    <CommentDialog closeHandle={this.closeCommentDialog}/> : null }
-
             </div>
         );
     }

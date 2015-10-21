@@ -6,12 +6,12 @@ var Comment = React.createClass({
     propTypes: {
         post: React.PropTypes.object
     },
-    getInitialState: function () {
+    getInitialState () {
         return {
             post: this.props.post
         }
     },
-    render: function () {
+    render () {
         return (
             <li className="clearfix list-item">
                 <CommentHead post={this.state.post}/>

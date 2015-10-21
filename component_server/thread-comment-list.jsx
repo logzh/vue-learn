@@ -1,7 +1,7 @@
 import React from 'react';
 import Comment from './comment';
-import $ from 'zepto';
-import Immutable from 'immutable';
+//import $ from 'zepto';
+import Request from 'superagent';
 
 let CommentList = React.createClass({
     propTypes: {
@@ -19,30 +19,22 @@ let CommentList = React.createClass({
         }
     },
     componentDidMount() {
-        //this.scrollEvent = rcUtil.Dom.addEventListener(window, 'scroll', this.handleScroll);
-        //this.resizeEvent = rcUtil.Dom.addEventListener(window, 'resize', this.handleScroll);
         window.addEventListener("scroll", this.handleScroll);
     },
 
     //componentWillUnmount() {
-    //    if (this.scrollEvent) {
-    //        this.scrollEvent.remove();
-    //    }
-    //    if (this.resizeEvent) {
-    //        this.resizeEvent.remove();
-    //    }
     //},
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
     },
     getComment() {
         var nextPage = this.state.page + 1;
-        $.get(this.state.url + "?page=" + this.state.page + "&threadId=" + this.state.threadId, function (result) {
-            if (this.isMounted()) {
+        Request.get(this.state.url + "?page=" + this.state.page + "&threadId=" + this.state.threadId).end(function (err, res) {
+            if (err) throw err;
 
-
+            if (!err && this.isMounted()) {
                 this.setState({
-                    posts: this.state.posts.concat(result.posts),
+                    posts: this.state.posts.concat(res.body.posts),
                     isLoading: false,
                     page: nextPage
                 });
@@ -70,7 +62,6 @@ let CommentList = React.createClass({
             loadingDiv = <div className="pull-loading"><p>加载中...</p></div>;
         }
         return (
-
             <div className="article-comments">
                 <i className="comment-icon"></i>
                 <ul className="clearfix" id="list-post">

@@ -19,18 +19,10 @@ let CommentList = React.createClass({
         }
     },
     componentDidMount() {
-        //this.scrollEvent = rcUtil.Dom.addEventListener(window, 'scroll', this.handleScroll);
-        //this.resizeEvent = rcUtil.Dom.addEventListener(window, 'resize', this.handleScroll);
         window.addEventListener("scroll", this.handleScroll);
     },
 
     //componentWillUnmount() {
-    //    if (this.scrollEvent) {
-    //        this.scrollEvent.remove();
-    //    }
-    //    if (this.resizeEvent) {
-    //        this.resizeEvent.remove();
-    //    }
     //},
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
@@ -70,7 +62,6 @@ let CommentList = React.createClass({
             loadingDiv = <div className="pull-loading"><p>加载中...</p></div>;
         }
         return (
-
             <div className="article-comments">
                 <i className="comment-icon"></i>
                 <ul className="clearfix" id="list-post">
