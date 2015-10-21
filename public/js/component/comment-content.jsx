@@ -12,7 +12,8 @@ let CommentContent = React.createClass({
     render: function () {
         var atHtml = '';
         if (this.state.post.replyAuthor) {
-            atHtml = '<span class="at">@' + this.state.post.replyAuthor + '</span>';
+            //atHtml = '<span class="at">@' + this.state.post.replyAuthor + '</span>';
+            atHtml = `<span class="at">@${this.state.post.replyAuthor}</span>`; //es6 string template
         }
         return (
             <div className="comment-main" dangerouslySetInnerHTML={{__html: atHtml + this.state.post.content}}></div>
