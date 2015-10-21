@@ -13,20 +13,18 @@ var Mock = require('mockjs');
 
 /* GET bbs page. */
 router.get('/', function (req, res, next) {
-
-    //var ThreadComponent = require('../public/js/component/thread.jsx');
-    //var html = ReactDomServer.renderToString(
-    //    React.createElement(ThreadComponent, props)
-    //);
-
     //init data
     var thread = require('../json/thread.json');
     var posts = require('../json/posts.json');
 
+    //var props = {user: thread.user, threadDateline:thread.dateline};
+    //
+    //var Component = require('../public/js/component/thread-author.jsx');
+    //var html = ReactDomServer.renderToStaticMarkup(
+    //    React.createElement(Component, props)
+    //);
+
     var props = {thread: thread, posts: posts};
-
-
-
     res.render('bbs', {title: 'Express', html: '', props:JSON.stringify(props)});
 });
 
