@@ -1,4 +1,5 @@
 import React from 'react';
+import Swiper from 'swiper'
 
 let EmotionPanel = React.createClass({
     render() {
@@ -128,4 +129,4 @@ let EmotionPanel = React.createClass({
     }
 });
 
-module.exports = EmotionPanel;
+module.exports = Carousel;

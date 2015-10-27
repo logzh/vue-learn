@@ -9,7 +9,6 @@ let CommentList = React.createClass({
         posts: React.PropTypes.array
     },
     getInitialState() {
-        window.addEventListener("scroll", this.handleScroll);
         return {
             threadId: this.props.threadId,
             posts: this.props.posts,
@@ -19,14 +18,19 @@ let CommentList = React.createClass({
         }
     },
     componentDidMount() {
+        //this.scrollEvent = rcUtil.Dom.addEventListener(window, 'scroll', this.handleScroll);
+        //this.resizeEvent = rcUtil.Dom.addEventListener(window, 'resize', this.handleScroll);
         window.addEventListener("scroll", this.handleScroll);
     },
 
     //componentWillUnmount() {
+    //    if (this.scrollEvent) {
+    //        this.scrollEvent.remove();
+    //    }
+    //    if (this.resizeEvent) {
+    //        this.resizeEvent.remove();
+    //    }
     //},
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.handleScroll);
-    },
     getComment() {
         var nextPage = this.state.page + 1;
         Request.get(this.state.url + "?page=" + this.state.page + "&threadId=" + this.state.threadId).end(function (err, res) {

@@ -17,7 +17,7 @@
     "morgan": "~1.6.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
-    "react-server": "0.0.1",
+    "react-swipe": "^3.0.0",
     "serve-favicon": "~2.3.0",
     "superagent": "^1.4.0",
     "zepto": "0.0.4"
