@@ -34,7 +34,7 @@ module.exports = {
         }, {
             test: /\.css$/,
             loader: 'style!css'
-        }, {//{ test: /\.(jpe?g|png|gif|svg)$/i, loader: 'url?limit=10000!img?progressive=true' }
+        }, {
             test: /\.(jpg|png|gif)$/,
             loader: 'url?limit=8192'//小于8kb的图片转化为base64，css中其他的图片地址会被体会为打包的地址，此处用到了publicPath
         }]
