@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from './component/emotion-panel';
+//import Component from './component/emotion-panel';
 //import Component from './component/share-mask';
 
 //import $ from './lib/zepto.js';
