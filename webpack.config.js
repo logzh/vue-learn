@@ -8,6 +8,8 @@ var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 module.exports = {
     entry: {
         thread: './public/js/bbs/thread.js',//页面1或者模块1入口
+        list:   './public/js/shiwan/list.js',//页面1或者模块1入口
+        trialEmpty:   './public/js/shiwan/empty.js',//页面1或者模块1入口
         demo: './public/js/demo.js'//页面2或者模块2入口
     },
     output: {

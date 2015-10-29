@@ -1,13 +1,11 @@
 /**
- * Created by spencezhang on 2015/10/16.
+ * Created by spencezhang on 2015/10/29.
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from './component/trial-list';
-//import Component from './component/share-mask';
-//import $ from './lib/zepto.js';
+import TrialList from '../component/trial-list';
 
 let props = JSON.parse(document.getElementById('props').innerHTML);
 let mountNode = document.getElementById('example');
-let element = React.createElement(Component, props);
+let element = React.createElement(TrialList, props);
 ReactDOM.render(element, mountNode);
