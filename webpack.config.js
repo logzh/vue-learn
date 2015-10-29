@@ -7,22 +7,22 @@ var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 
 module.exports = {
     entry: {
-        thread: './public/js/bbs/thread.js',//页面1或者模块1入口
-        list:   './public/js/shiwan/list.js',//页面1或者模块1入口
-        trialEmpty:   './public/js/shiwan/empty.js',//页面1或者模块1入口
-        demo: './public/js/demo.js'//页面2或者模块2入口
+        thread: 'js/bbs/thread.js',//页面1或者模块1入口
+        list:   'js/shiwan/list.js',//页面1或者模块1入口
+        trialEmpty:   'js/shiwan/empty.js',//页面1或者模块1入口
+        demo: 'js/demo.js'//页面2或者模块2入口
     },
     output: {
-        path: path.join(process.cwd(), 'public/build/'),//打包的目标目录
+        path: 'build/',//打包的目标目录
         filename: '[name].bundle.js',     //生成的文件名
         publicPath: 'build/'      //如果资源需要上传到cdn可以使用 http://mycdn/asset/
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],// 配置可以不书写的后缀名
-        root: path.join(process.cwd(), 'public/js/'), //配置绝对路径，alias中会使用
+        root: path.join(process.cwd(), 'public/'), //配置绝对路径，alias、entry中会使用
         alias: {
-            zepto: "lib/zepto.js",
-            swiper: "lib/swiper.js"
+            zepto: "js/lib/zepto.js",
+            swiper: "js/lib/swiper.js"
         }
     },
     module: {//各种加载器
