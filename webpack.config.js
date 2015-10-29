@@ -41,7 +41,8 @@ module.exports = {
             loader: 'url?limit=8192'//小于8kb的图片转化为base64，css中其他的图片地址会被体会为打包的地址，此处用到了publicPath
         }]
     },
-    devtool: 'source-map',
+    devtool: "#source-map",
+    watch: true,
     plugins: [
         commonsPlugin
         //,
