@@ -19,7 +19,7 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],// 配置可以不书写的后缀名
-        root: path.join(process.cwd(), 'public/'), //配置绝对路径，alias、entry中会使用
+        root: path.join(__dirname, 'public/'), //配置绝对路径，alias、entry中会使用
         alias: {
             zepto: "js/lib/zepto.js",
             swiper: "js/lib/swiper.js"
