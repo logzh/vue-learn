@@ -39,7 +39,15 @@ module.exports = {
             loader: 'url?limit=8192'//小于8kb的图片转化为base64，css中其他的图片地址会被体会为打包的地址，此处用到了publicPath
         }]
     },
-    devtool: "#source-map",
-    watch: true,
-    plugins: [commonsPlugin]
+    plugins: [
+        commonsPlugin,
+        function() {//https://webpack.github.io/docs/long-term-caching.html
+            this.plugin("done", function(stats) {//生成对于的打包文件，详细信息，特别是hash信息
+                require("fs").writeFileSync(
+                    path.join(process.cwd(), "stats.json"),
+                    JSON.stringify(stats.toJson()));
+            });
+        }
+    ]
+
 };
