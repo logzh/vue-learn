@@ -1,2 +1,2 @@
-# react-client
-react render on client side
+# vue-wwq
+wwq components built with Vue.js
