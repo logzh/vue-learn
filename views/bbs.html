@@ -3,7 +3,11 @@
 <link rel="stylesheet" type="text/css" href="/css/community.css?v=960">
 
 
-<div id="example"></div>
+<div id="demo">
+    {{message}}
+    <input v-model="message">
+</div>
+
 <script id="props" type="application/json">
     <%- props %>
 </script>

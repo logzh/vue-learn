@@ -6,9 +6,6 @@ var router = express.Router();
 
 require('babel/register');
 
-var React = require('react');
-var ReactDomServer = require('react-dom/server');
-
 var Mock = require('mockjs');
 
 /* GET bbs page. */

@@ -4,9 +4,6 @@ var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 
 module.exports = {
     entry: {
-        thread: 'js/bbs/thread.js',//页面1或者模块1入口
-        list: 'js/shiwan/list.js',
-        trialEmpty: 'js/shiwan/empty.js',
         demo: 'js/demo.js'
     },
     output: {
@@ -23,11 +20,10 @@ module.exports = {
             swiper: "js/lib/swiper.js"
         }
     },
-    module: {//各种加载器
+    module: {//各种加载器{ test: /\.vue$/, loader: 'vue' },
         loaders: [ {
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel'
+            test: /\.vue?$/,
+            loader: 'vue'
         }, {
             test: /\.json$/,
             loader: 'json'
