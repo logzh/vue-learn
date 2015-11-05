@@ -1,19 +1,24 @@
 <template>
-  <h1 class="red">{{msg}}</h1>
+    <h1 class="red" @click="click()">{{msg}}</h1>
 </template>
 
-<script type="text/ecmascript-6">
-export default {
-  data () {
-    return {
-      msg: 'Hello world!'
+<script>
+    module.exports = {
+        data: function(){
+            return {
+                msg: 'hello App'
+            }
+        },
+        methods: {
+            click: function(){
+                alert(this.msg);
+            }
+        }
     }
-  }
-}
 </script>
 
 <style>
-.red {
-  color: #f00;
-}
+    .red {
+        color: #f00;
+    }
 </style>
