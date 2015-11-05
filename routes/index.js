@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Express', hello: 'Hello World!'});
+    res.render('index', {title: 'Express', hello: 'Hello Vue.js!'});
 });
 
 router.get('/test', function (req, res, next) {
