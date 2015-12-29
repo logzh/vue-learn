@@ -9,16 +9,16 @@
 
 <script>
     module.exports = {
-        data: function () {
+        data: function() {
             return {
                 msg: 'hello App',
                 shiwan: []
             }
         },
-        ready: function () {
+        ready: function() {
             console.log('ready');
             var self = this;
-            self.$http.get('/static/json/shiwan.json').then(function (response) {
+            self.$http.get('/static/json/shiwan.json').then(function(response) {
 
                 // get status
                 response.status;
@@ -32,15 +32,15 @@
                 // set data on vm
                 self.$set('shiwan', response.data);
 
-            }, function (response) {
+            }, function(response) {
 
                 // handle error
             });
         },
         methods: {
-            click: function () {
+            click: function() {
                 var self = this;
-                self.$http.get('/static/json/shiwan.json').then(function (response) {
+                self.$http.get('/static/json/shiwan.json').then(function(response) {
 
                     // get status
                     response.status;
@@ -54,7 +54,7 @@
                     // set data on vm
                     self.$set('shiwan', response.data);
 
-                }, function (response) {
+                }, function(response) {
 
                     // handle error
                 });
