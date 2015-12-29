@@ -15,13 +15,3 @@ gulp.task("webpack", function (callback) {
         callback();
     });
 });
-
-gulp.task('rename', function () {
-    return gulp.src('./public/build/*.js')
-        .pipe(hash({
-            "format": "{name}.{hash}{ext}"
-        }))
-        .pipe(gulp.dest('./public/dist/'))
-});
-
-
