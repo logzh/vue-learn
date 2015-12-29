@@ -18,17 +18,45 @@
         ready: function () {
             console.log('ready');
             var self = this;
-            self.$http.get('/json/shiwan.json', function (data) {
-                self.$set('shiwan', data);
-            }).error(function (data, status, request) {
+            self.$http.get('/static/json/shiwan.json').then(function (response) {
+
+                // get status
+                response.status;
+
+                // get all headers
+                response.headers();
+
+                // get 'expires' header
+                response.headers('expires');
+
+                // set data on vm
+                self.$set('shiwan', response.data);
+
+            }, function (response) {
+
+                // handle error
             });
         },
         methods: {
             click: function () {
                 var self = this;
-                self.$http.get('/json/shiwan.json', function (data) {
-                    self.$set('shiwan', self.$data.shiwan.concat(data));
-                }).error(function (data, status, request) {
+                self.$http.get('/static/json/shiwan.json').then(function (response) {
+
+                    // get status
+                    response.status;
+
+                    // get all headers
+                    response.headers();
+
+                    // get 'expires' header
+                    response.headers('expires');
+
+                    // set data on vm
+                    self.$set('shiwan', response.data);
+
+                }, function (response) {
+
+                    // handle error
                 });
             }
         }
