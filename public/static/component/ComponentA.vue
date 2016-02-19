@@ -7,15 +7,16 @@
     </ul>
 </template>
 
-<script>
-    module.exports = {
-        data: function() {
+<script type="text/ecmascript-6">
+
+    export default {
+        data() {
             return {
                 msg: 'hello App',
                 shiwan: []
             }
         },
-        ready: function() {
+        ready() {
             console.log('ready');
             var self = this;
             self.$http.get('/static/json/shiwan.json').then(function(response) {
@@ -38,7 +39,7 @@
             });
         },
         methods: {
-            click: function() {
+            click() {
                 var self = this;
                 self.$http.get('/static/json/shiwan.json').then(function(response) {
 

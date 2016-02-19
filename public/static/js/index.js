@@ -8,7 +8,7 @@ var vm = new Vue({
   }
 });
 
-var App = require('../component/app.vue');
+var App = require('../component/ComponentA.vue');
 
 new Vue({
   el: 'body',
