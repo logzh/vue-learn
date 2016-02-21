@@ -22,11 +22,43 @@
         display: none;
     }
 </style>
-<app></app>
+
+<h2>component</h2>
+
+<component-a></component-a>
+
+<h2>v-model</h2>
 
 <div id="demo" v-cloak>
     {{message}}
     <input v-model="message">
+</div>
+
+<h2>v-for</h2>
+
+<ul id="list" v-for="todo in todos">
+    {{todo.text}}
+</ul>
+
+<h2>处理用户操作</h2>
+<div id="reverseTest">
+    <p>{{message}}</p>
+    <button @click="reverseMsg">reverse message</button>
+</div>
+
+<h2>处理用户操作</h2>
+<div id="todo">
+    <input type="text" v-model="newTodo" @keyup.enter="addTodo">
+    <ul>
+        <li v-for="todo in todos">
+            {{todo.text}}
+            <button @click="removeTodo($index)">X</button>
+        </li>
+    </ul>
+</div>
+<h2>Hook 钩子</h2>
+<div id="hook">
+    <input type="text" v-model="text">
 </div>
 
 <script type="text/javascript" src="/static/js/common.js" charset="utf-8"></script>
