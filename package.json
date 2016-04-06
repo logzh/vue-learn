@@ -12,7 +12,8 @@
     "object-assign": "^4.0.1",
     "underscore": "^1.8.3",
     "vue": "^1.0.13",
-    "vue-resource": "^0.5.1"
+    "vue-resource": "^0.5.1",
+    "vue-router": "^0.7.11"
   },
   "devDependencies": {
     "babel-core": "^6.3.2",
@@ -39,10 +40,5 @@
     "webpack": "~1.12.9",
     "webpack-dev-server": "~1.14.0",
     "webpack-hot-middleware": "^2.6.0"
-  },
-  "pre-commit": [
-    "lint",
-    "validate",
-    "test"
-  ]
+  }
 }
