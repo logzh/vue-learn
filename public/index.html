@@ -34,7 +34,7 @@
 <!-- 子组件模板 -->
 <template id="child-template" v-cloak>
     <input v-model="msg">
-    <button v-on:click="notify">Dispatch Event</button>
+    <button @click="notify">Dispatch Event</button>
 </template>
 
 <!-- 父组件模板 -->

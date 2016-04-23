@@ -9,6 +9,11 @@ new Vue({
   data:{
     msg:'123'
   },
+  methods:{
+    'clickHandle': function(aa) {
+      alert(aa)
+    }
+  },
   components: {
     'component-a': ComponentA
   }

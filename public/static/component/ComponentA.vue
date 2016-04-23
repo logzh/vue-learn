@@ -1,5 +1,5 @@
 <template>
-    <h1 class="red" @click="click()">{{msg}}</h1>
+    <h1 class="red" @click="clickHandle(11)">{{msg}}</h1>
     <p>hh属性：{{hh}}</p>
     <ul>
         <li v-for="item in shiwan" track-by="$index">
@@ -11,7 +11,7 @@
 <script type="text/ecmascript-6">
 
     export default {
-        props:['msg', 'hh'],
+        props:['msg', 'hh', 'clickHandle'],
         data() {
             return {
                 shiwan: []
@@ -40,6 +40,10 @@
             });
         },
         methods: {
+            click11 (mm){
+                console.log(this)
+
+            },
             click() {
                 var self = this;
                 self.$http.get('/static/json/shiwan.json').then(function(response) {
