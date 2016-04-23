@@ -1,5 +1,6 @@
 <template>
     <h1 class="red" @click="click()">{{msg}}</h1>
+    <p>hh属性：{{hh}}</p>
     <ul>
         <li v-for="item in shiwan" track-by="$index">
             {{ item.name }}
@@ -10,7 +11,7 @@
 <script type="text/ecmascript-6">
 
     export default {
-        props:['msg'],
+        props:['msg', 'hh'],
         data() {
             return {
                 shiwan: []
