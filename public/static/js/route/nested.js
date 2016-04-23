@@ -6,8 +6,10 @@ Vue.use(VueRouter);
 // 定义组件
 var Foo = Vue.extend({
   template: '<div class="foo">' +
-  '<h2>This is Foo!</h2>' +
+  '<h2>This is Foo!</h2> from data :{{msg}}' +
   '<router-view></router-view>' +
+  `<a v-link="{name:'default'}">go default</a>` +
+  `<a @click="$router.go({ name: 'default'})"">go default</a>` +
   '</div>'
 })
 
@@ -31,11 +33,15 @@ router.map({
   '/': {
     // 当匹配到 /foo 时，这个组件会被渲染到 Foo 组件的 <router-view> 中。
     // 为了简便，这里使用了一个组件的定义
+    name: 'default',
     component: {
       template: '<p>Default sub view for Foo</p>'
     }
   },
   '/foo': {
+    data: {
+      'msg':'hello '
+    },
     component: Foo,
     // 在/foo下设置一个子路由
     subRoutes: {

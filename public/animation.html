@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    #block{
+        height:100px;
+        width:100px;
+        background-color: yellow;
+    }
+</style>
+<div id="block">
+
+</div>
+
+<button id="pause">暂停</button>
+
+<script>
+    var deg = 0;
+    var block = document.getElementById('block');
+//    block.addEventListener('click', function(e){
+//        var self = this;
+//        setInterval(function(){
+//            self.style.transform = 'rotate(' + (deg++) +'deg)';
+//        });
+//    });
+
+//    block.addEventListener('click', function(){
+//        var self = this, startTime = Date.now();
+//        setInterval(function(){
+//            var T = 1000;
+//            var p = (Date.now() - startTime) / T;
+//            console.log(360 * p)
+//            self.style.transform = 'rotate(' + (360 * p) +'deg)';
+//        });
+//    });
+
+    block.addEventListener('click', function(){
+        var self = this, startTime = Date.now(),
+                r = 100, T = 2000;
+
+        requestAnimationFrame(function step(){
+            var p = Math.min(1.0, (Date.now() - startTime) / T);
+            var tx = -r * Math.sin(2 * Math.PI * p),
+                    ty = -r * Math.cos(2 * Math.PI * p);
+
+            self.style.transform = 'translate('
+                    + tx + 'px,' + ty + 'px)';
+            if(p < 1.0) requestAnimationFrame(step);
+        });
+    });
+</script>
+</body>
+</html>

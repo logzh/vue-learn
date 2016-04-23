@@ -1,4 +1,5 @@
 var Vue = require('vue');
+Vue.config.debug = true;
 Vue.use(require('vue-resource'));
 
 var vm = new Vue({
