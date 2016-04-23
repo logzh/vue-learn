@@ -18,7 +18,6 @@
         },
         ready() {
             console.log('ready');
-            console.log(this);
             var self = this;
             self.$http.get('/static/json/shiwan.json').then(function(response) {
 
