@@ -24,7 +24,7 @@
 
 <h2>component:props</h2>
 
-<div id="example">
+<div id="example" v-cloak>
     <my-component :msg="msg" :user-id="userId"></my-component>
     <input type="text" v-model="msg">
     <input type="text" v-model="userId">
@@ -32,7 +32,7 @@
 
 <h2>component:events-example</h2>
 <!-- 子组件模板 -->
-<template id="child-template">
+<template id="child-template" v-cloak>
     <input v-model="msg">
     <button v-on:click="notify">Dispatch Event</button>
 </template>
@@ -53,18 +53,18 @@
 
 <h2>v-for</h2>
 
-<ul id="list" >
+<ul id="list" v-cloak >
     <li v-for="todo in todos">{{todo.text}}</li>
 </ul>
 
 <h2>处理用户操作</h2>
-<div id="reverseTest">
+<div id="reverseTest" v-cloak>
     <p>{{message}}</p>
     <button @click="reverseMsg">reverse message</button>
 </div>
 
 <h2>处理用户操作</h2>
-<div id="todo">
+<div id="todo" v-cloak>
     <input type="text" v-model="newTodo" @keyup.enter="addTodo">
     <ul>
         <li v-for="todo in todos">
@@ -74,7 +74,7 @@
     </ul>
 </div>
 <h2>生命周期 Hook 钩子</h2>
-<div id="hook">
+<div id="hook" v-cloak>
     <input type="text" v-model="text">
 </div>
 

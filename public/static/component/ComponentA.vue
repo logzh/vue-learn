@@ -10,14 +10,15 @@
 <script type="text/ecmascript-6">
 
     export default {
+        props:['msg'],
         data() {
             return {
-                msg: 'hello App',
                 shiwan: []
             }
         },
         ready() {
             console.log('ready');
+            console.log(this);
             var self = this;
             self.$http.get('/static/json/shiwan.json').then(function(response) {
 
