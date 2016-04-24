@@ -28,7 +28,7 @@ npm start
 
 v-if、v-show、v-else、v-for 等
 
-v-if、v-for 可用于 <template> 标签上，分别表示模版可见、遍历模版
+v-if、v-for 可用于 `<template>` 标签上，分别表示模版可见、遍历模版
 
 有些指令可以带*参数*、*修饰符*：
 
