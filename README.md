@@ -75,7 +75,7 @@ v-on:click.stop
 ### 组件
 
 编写可复用的组件
-组件的 API 来自三部分：props、事件、slot（还不太懂）
+组件的 API 来自三部分：props、事件、slot
 
 - props 允许外部环境传递数据给组件（其中数据也可以是 action）
 - 事件 允许在组件内触发外部环境的 action
