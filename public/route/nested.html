@@ -33,6 +33,20 @@
     <router-view></router-view>
 </div>
 
+<script id="foo" type="x-template">
+    <div class="foo">
+        <h2>This is Foo!</h2> from data :{{msg}};
+        <router-view :msg="msg"></router-view>
+        <a v-link="{name:'default'}">go default</a>
+        <a @click="$router.go({ name: 'default'})">go default</a>
+    </div>
+</script>
+
+<script id="bar" type="x-template">
+    <p @click="clickBar">This is bar!</p>
+    <p>bar里的msg：{{msg}}</p>
+</script>
+
 <script type="text/javascript" src="/static/js/common.js" charset="utf-8"></script>
 <script type="text/javascript" src="/static/js/route.nested.js" charset="utf-8"></script>
 </body>
