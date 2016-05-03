@@ -17,11 +17,12 @@ var Bar = Vue.extend({
   template: '#bar',
   props:['msg'],
   ready: function(){
-    console.log(this)
+
   },
   methods: {
     clickBar: function(){
-      console.log(123);
+      //this.msg = 'hhhhh';
+      console.log(this)
     }
   }
 });
