@@ -5,43 +5,53 @@ Vue.use(VueRouter);
 
 // 定义组件
 var Foo = Vue.extend({
-  template: '<div class="foo">' +
-  '<h2>This is Foo!</h2> from data :{{msg}}' +
-  '<router-view></router-view>' +
-  `<a v-link="{name:'default'}">go default</a>` +
-  `<a @click="$router.go({ name: 'default'})"">go default</a>` +
-  '</div>'
-})
+  template: '#foo',
+  data: function(){
+    return {
+      'msg':'hello'
+    };
+  }
+});
 
 var Bar = Vue.extend({
-  template: '<p>This is bar!</p>'
-})
+  template: '#bar',
+  props:['msg'],
+  ready: function(){
+
+  },
+  methods: {
+    clickBar: function(){
+      //this.msg = 'hhhhh';
+      console.log(this)
+    }
+  }
+});
 
 var Baz = Vue.extend({
-  template: '<p>This is baz!</p>'
-})
+  template: '<p>This is baz!</p>',
+  data: function(){
+    return {
+      'msg':'baz'
+    };
+  }
+});
 
 // 路由器需要一个根组件。
 // 出于演示的目的，这里使用一个空的组件，直接使用 HTML 作为应用的模板
-var App = Vue.extend({})
+var App = Vue.extend({});
 
 // 创建一个路由器实例
 // 创建实例时可以传入配置参数进行定制，为保持简单，这里使用默认配置
-var router = new VueRouter()
+var router = new VueRouter();
 
 router.map({
   '/': {
-    // 当匹配到 /foo 时，这个组件会被渲染到 Foo 组件的 <router-view> 中。
-    // 为了简便，这里使用了一个组件的定义
     name: 'default',
     component: {
       template: '<p>Default sub view for Foo</p>'
     }
   },
   '/foo': {
-    data: {
-      'msg':'hello '
-    },
     component: Foo,
     // 在/foo下设置一个子路由
     subRoutes: {

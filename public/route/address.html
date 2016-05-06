@@ -24,14 +24,29 @@
 
 <div id="app">
     <h1>Hello App nested!</h1>
-    <p>
-        <a v-link="{ path: '/foo' }">Go to /foo</a>
-        <a v-link="{ path: '/foo/bar' }">Go to /foo/bar</a>
-        <a v-link="{ path: '/foo/baz' }">Go to /foo/baz</a>
-    </p>
+    <!--<p>-->
+        <!--<a v-link="{ path: '/address' }">Go to /address</a>-->
+        <!--<a v-link="{ path: '/foo' }">Go to /foo</a>-->
 
-    <router-view></router-view>
+        <!--<a v-link="{ path: '/foo/bar' }">Go to /foo/bar</a>-->
+        <!--<a v-link="{ path: '/foo/baz' }">Go to /foo/baz</a>-->
+    <!--</p>-->
+
+    <router-view :user="user" :change-nick="changeNick"></router-view>
 </div>
+
+<script id="address" type="x-template">
+    <ul>
+        <li v-for="item in address"><a v-link="{ name: 'editAddress', params: { addressId: item.id }}" >{{item.province}}</a></li>
+    </ul>
+</script>
+
+<script id="edit-address" type="x-template">
+    <div>
+        <p>{{$route.params | json}}</p>
+        <p>{{user | json}}</p>
+    </div>
+</script>
 
 <script id="foo" type="x-template">
     <div class="foo">
@@ -50,7 +65,7 @@
 </script>
 
 <script type="text/javascript" src="/static/js/common.js" charset="utf-8"></script>
-<script type="text/javascript" src="/static/js/route.nested.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/js/route.address.js" charset="utf-8"></script>
 </body>
 </html>
 

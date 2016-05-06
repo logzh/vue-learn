@@ -7,7 +7,7 @@ wwq components built with Vue.js
 npm start
 ```
 
-## 笔记
+## 学习教程与API 笔记
 
 ### Vue实例
 
