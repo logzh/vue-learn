@@ -1,5 +1,5 @@
-# vue-wwq
-wwq components built with Vue.js
+# vue-learn
+
 
 ## How to use
 
