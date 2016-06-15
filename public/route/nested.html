@@ -36,7 +36,7 @@
 <script id="foo" type="x-template">
     <div class="foo">
         <h2>This is Foo!</h2> from data :{{msg}};
-        <router-view :msg="msg"></router-view>
+        <router-view :msg="msg" :change-msg="changeMsg"></router-view>
         <a v-link="{name:'default'}">go default</a>
         <a @click="$router.go({ name: 'default'})">go default</a>
     </div>
@@ -44,8 +44,17 @@
 
 <script id="bar" type="x-template">
     <div>
-        <p @click="clickBar">This is bar!</p>
+        <p>This is bar!</p>
+        <button @click="clickBar(22)">改变顶层msg</button>
         <p>bar里的msg：{{msg}}</p>
+    </div>
+</script>
+
+<script id="baz" type="x-template">
+    <div>
+        <p>This is baz!</p>
+        <button @click="clickBaz(11)">改变顶层msg</button>
+        <p>baz里的msg：{{msg}}</p>
     </div>
 </script>
 

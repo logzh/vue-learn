@@ -10,29 +10,31 @@ var Foo = Vue.extend({
     return {
       'msg':'hello'
     };
+  },
+  methods: {
+    changeMsg: function(text){
+      this.msg = text;
+    }
   }
 });
 
 var Bar = Vue.extend({
   template: '#bar',
-  props:['msg'],
-  ready: function(){
-
-  },
+  props: ['changeMsg', 'msg'],
   methods: {
-    clickBar: function(){
-      //this.msg = 'hhhhh';
-      console.log(this)
+    clickBar: function(text){
+      this.changeMsg(text)
     }
   }
 });
 
 var Baz = Vue.extend({
-  template: '<p>This is baz!</p>',
-  data: function(){
-    return {
-      'msg':'baz'
-    };
+  template: '#baz',
+  props: ['changeMsg', 'msg'],
+  methods: {
+    clickBaz: function(text){
+      this.changeMsg(text)
+    }
   }
 });
 
