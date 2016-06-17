@@ -1,5 +1,5 @@
 <template>
-    <h1 class="red" @click="clickHandle(11)">{{msg}}</h1>
+    <h1 class="red" @click="click11(11)">{{msg}}</h1>
     <p>hh属性：{{hh}}</p>
     <ul>
         <li v-for="item in shiwan" track-by="$index">
@@ -8,10 +8,10 @@
     </ul>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 
     export default {
-        props:['msg', 'hh', 'clickHandle'],
+        props: ['msg', 'hh', 'clickHandle'],
         data() {
             return {
                 shiwan: []
@@ -41,7 +41,7 @@
         },
         methods: {
             click11 (mm){
-                console.log(this)
+                this.clickHandle(mm)
 
             },
             click() {
@@ -69,8 +69,8 @@
     }
 </script>
 
-<style>
+<style scoped>
     .red {
-        color: #f00;
+        color: red;
     }
 </style>
