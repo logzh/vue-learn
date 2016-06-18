@@ -18,10 +18,16 @@ var dev = [
 
 var pro = [
   {
-    title: 'Angular-Webpack',
+    title: 'index',
     filename: 'index.html',
-    template: proTemplate,
+    template: 'html!./template/index.html',
     chunks: ['vendor', 'index']
+  },
+  {
+    title: 'index',
+    filename: 'component.html',
+    template: 'html!./template/component.vue.html',
+    chunks: ['vendor', 'component']
   }
 ];
 
