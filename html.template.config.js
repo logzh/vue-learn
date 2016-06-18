@@ -9,10 +9,16 @@ var dev = [
     chunks: ['vendor', 'index']
   },
   {
-    title: 'index',
+    title: 'component',
     filename: 'component.html',
     template: 'html!./template/component.vue.html',
     chunks: ['vendor', 'component']
+  },
+  {
+    title: 'router-nested',
+    filename: 'nested.html',
+    template: 'html!./template/nested.html',
+    chunks: ['vendor', 'nested']
   }
 ];
 
@@ -28,6 +34,12 @@ var pro = [
     filename: 'component.html',
     template: 'html!./template/component.vue.html',
     chunks: ['vendor', 'component']
+  },
+  {
+    title: 'router-nested',
+    filename: 'nested.html',
+    template: 'html!./template/nested.html',
+    chunks: ['vendor', 'nested']
   }
 ];
 
