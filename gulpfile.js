@@ -2,8 +2,6 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
-var eslint = require('gulp-eslint');
-var reporter = require('eslint-html-reporter');
 var fs = require('fs');
 var path = require('path');
 

@@ -52,13 +52,19 @@ var config = {
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
-      { test: /zepto(\.min)?\.js$/, loader: "exports?Zepto; delete window.$; delete window.Zepto;" },
+      {
+        test: /zepto(\.min)?\.js$/, loader: "exports?Zepto; delete window.$; delete window.Zepto;"
+      },
       {
         test: /\.(jpg|png|gif)$/,
         loader: 'url?limit=8192' // 小于8kb的图片转化为base64，css中其他的图片地址会被体会为打包的地址，此处用到了publicPath
       },
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap')},
-      {test: /\.vue$/, loader: 'vue'}
+      {
+        test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap')
+      },
+      {
+        test: /\.vue$/, loader: 'vue'
+      }
     ]
   },
   devtool: "#source-map",

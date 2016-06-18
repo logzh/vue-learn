@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 var entry = require('./entry.js');
 var templateConfig = require('./html.template.config.js').pro;
-var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('vendor', 'static/js/vendor.[hash].js', 5);
+var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('vendor', 'static/js/vendor.[hash].js', 3);
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -10,7 +10,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var config = {
   entry: entry,
   output: {
-    path: path.join(__dirname, '../'),
+    // path: path.join(__dirname, '../'),
+    path: path.join(__dirname, './product'),
     publicPath: 'http://cdn.tig.qq.com/aitoy/',
     filename: 'static/js/[name].[chunkhash].js'
   },
@@ -33,12 +34,19 @@ var config = {
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
-      {test: /zepto(\.min)?\.js$/, loader: "exports?Zepto; delete window.$; delete window.Zepto;"},
+      {
+        test: /zepto(\.min)?\.js$/, loader: "exports?Zepto; delete window.$; delete window.Zepto;"
+      },
       {
         test: /\.(jpg|png|gif)$/,
         loader: 'url?limit=1024&name=static/images/[hash].[ext]'// 小于8kb的图片转化为base64，css中其他的图片地址会被体会为打包的地址，此处用到了publicPath
       },
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap')}
+      {
+        test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap')
+      },
+      {
+        test: /\.vue$/, loader: 'vue'
+      }
     ]
   },
   plugins: [

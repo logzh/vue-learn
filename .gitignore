@@ -1,4 +1,6 @@
 .idea/*
 .vscode/*
 /node_modules
-/public/build
+/product
+/development
+.idea/
