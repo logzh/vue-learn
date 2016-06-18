@@ -1,6 +1,6 @@
 var Vue = require('vue');
 Vue.config.debug = true;
-Vue.use(require('vue-resource'));
+// Vue.use(require('vue-resource'));
 
 // 定义
 var MyComponent = Vue.extend({
@@ -8,15 +8,15 @@ var MyComponent = Vue.extend({
   props:['msg', 'userId']
 })
 
-// 注册
-Vue.component('my-component', MyComponent)
-
 // 创建根实例
 new Vue({
   el: '#example',
   data:{
     msg:'from parent',
     userId:123
+  },
+  components: {
+    'my-component': MyComponent
   }
 })
 
@@ -49,47 +49,23 @@ var parent = new Vue({
   },
   methods:{
     handleIt: function(msg) {
+      debugger;
       this.messages.push(msg)
     },
     doFollow: function(msg) {
       console.log(msg)
     }
   }
-  // 在创建实例时 `events` 选项简单地调用 `$on`
+  // ,
+  // //在创建实例时 `events` 选项简单地调用 `$on`
   // events: {
   //   'child-msg': function (msg) {
-  //     事件回调内的 `this` 自动绑定到注册它的实例上
-      // this.messages.push(msg)
-    // }
+  //     debugger;
+  //     //事件回调内的 `this` 自动绑定到注册它的实例上
+  //     this.messages.push(msg)
+  //   }
   // }
 })
-
-//======================================================
-var vm = new Vue({
-  el: '#demo',
-  data: {
-    message: 'Hello Vue.js!'
-  }
-});
-
-var vm2 = new Vue({
-  el: '#list',
-  data: {
-    todos: [{text: '打扫房间'}, {text: '总结'}]
-  }
-});
-
-var vm3 = new Vue({
-  el: '#reverseTest',
-  data: {
-    message: '123456789'
-  },
-  methods:{
-    reverseMsg: function() {
-      this.message = this.message.split('').reverse().join('');
-    }
-  }
-});
 
 var vm4 = new Vue({
   el: '#todo',
@@ -108,14 +84,5 @@ var vm4 = new Vue({
     removeTodo:function(index){
       this.todos.splice(index, 1);
     }
-  }
-});
-var vm5 = new Vue({
-  el: '#hook',
-  data: {
-    text: '123'
-  },
-  created: function() {
-    console.log(this.text);
   }
 });

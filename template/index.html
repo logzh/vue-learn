@@ -22,7 +22,7 @@
     }
 </style>
 
-<h2>component:props</h2>
+<h3>component:props</h3>
 
 <div id="example" v-cloak>
     <my-component :msg="msg" :user-id="userId"></my-component>
@@ -30,7 +30,7 @@
     <input type="text" v-model="userId">
 </div>
 <br/>
-<h2>component:events-example</h2>
+<h3>component:events-example</h3>
 <!-- 子组件模板 -->
 <template id="child-template" v-cloak>
     <input v-model="msg">
@@ -43,27 +43,8 @@
     <child @child-msg="handleIt" :do-follow="doFollow" ></child>
 </div>
 
-<h2>v-model</h2>
 
-<div id="demo" v-cloak>
-    {{message}}
-    <p>v-bind <a v-bind:href="message">sss</a></p>
-    <input v-model="message">
-</div>
-
-<h2>v-for</h2>
-
-<ul id="list" v-cloak >
-    <li v-for="todo in todos">{{todo.text}}</li>
-</ul>
-
-<h2>处理用户操作</h2>
-<div id="reverseTest" v-cloak>
-    <p>{{message}}</p>
-    <button @click="reverseMsg">reverse message</button>
-</div>
-
-<h2>处理用户操作</h2>
+<a href="#todo"><h3>todo</h3></a>
 <div id="todo" v-cloak>
     <input type="text" v-model="newTodo" @keyup.enter="addTodo">
     <ul>
@@ -72,10 +53,6 @@
             <button @click="removeTodo($index)">X</button>
         </li>
     </ul>
-</div>
-<h2>生命周期 Hook 钩子</h2>
-<div id="hook" v-cloak>
-    <input type="text" v-model="text">
 </div>
 
 </body>
