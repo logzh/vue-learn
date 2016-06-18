@@ -19,6 +19,12 @@ var dev = [
     filename: 'nested.html',
     template: 'html!./template/nested.html',
     chunks: ['vendor', 'nested']
+  },
+  {
+    title: 'address',
+    filename: 'address.html',
+    template: 'html!./template/address.html',
+    chunks: ['vendor', 'address']
   }
 ];
 
@@ -40,6 +46,12 @@ var pro = [
     filename: 'nested.html',
     template: 'html!./template/nested.html',
     chunks: ['vendor', 'nested']
+  },
+  {
+    title: 'address',
+    filename: 'address.html',
+    template: 'html!./template/address.html',
+    chunks: ['vendor', 'address']
   }
 ];
 

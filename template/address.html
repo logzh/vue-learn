@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue wwq</title>
+    <meta name="description" itemprop="description" content="react">
+    <meta itemprop="name" content="react">
+    <meta itemprop="image" content="http://wwq.qq.com/images/logo-2.png">
+    <meta name="keywords" content="react">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+<body>
+<style>
+    [v-cloak] {
+        display: none;
+    }
+</style>
+
+<div id="app">
+    <router-view
+            :selected-address="selectedAddress"
+            :select-address="selectAddress"
+            :save-address="saveAddress"
+    ></router-view>
+</div>
+
+<script id="q" type="x-template">
+    <div>
+        已经选择的地址：<div>{{selectedAddress | json}}</div>
+        <a v-link="{ name: 'addressList' }">从地址列表中选择</a>
+    </div>
+</script>
+
+<script id="addressList" type="x-template">
+    <ul>
+        <li v-for="item in items" >
+            <div @click="selectAddress(item)">{{item | json}}</div>
+            <a v-link="{ name: 'editAddress', params:{addressId:item.id} }">编辑</a>
+        </li>
+        <li><a v-link="{ name: 'addAddress' }">添加</a></li>
+    </ul>
+</script>
+
+<script id="address" type="x-template">
+    <form>
+        <div>
+            <label for="">省份：</label>
+            <input type="text" v-model="address.province">
+        </div>
+        <div>
+            <label for="">市：</label>
+            <input type="text" v-model="address.city">
+        </div>
+        <div>
+            <label for="">县/区：</label>
+            <input type="text" v-model="address.county">
+        </div>
+        <div>
+            <label for="">电话：</label>
+            <input type="text" v-model="address.phoneNo">
+        </div>
+        <div>
+            <label for="">收货人：</label>
+            <input type="text" v-model="address.receiver">
+        </div>
+        <div>
+            <button @click="saveAddress(address)">保存</button>
+        </div>
+    </form>
+</script>
+
+<script id="baz" type="x-template">
+    <div>
+        <p>This is baz!</p>
+        <button @click="clickBaz(11)">改变顶层msg</button>
+        <p>baz里的msg：{{msg}}</p>
+    </div>
+</script>
+
+</body>
+</html>
+
+
