@@ -1,6 +1,3 @@
-var devTemplate = 'template/dev.html';
-var proTemplate = 'template/pro.html';
-
 var dev = [
   {
     title: 'index',
