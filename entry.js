@@ -4,5 +4,6 @@ module.exports = {
   'component': [path.resolve(__dirname, 'public/static/js/entry/component.vue.js')],
   'nested': [path.resolve(__dirname, 'public/static/js/entry/nested.js')],
   'address': [path.resolve(__dirname, 'public/static/js/entry/address.js')],
+  'address.component': [path.resolve(__dirname, 'public/static/js/entry/address.component.js')],
   'index': [path.resolve(__dirname, 'public/static/js/entry/index.js')]
 };

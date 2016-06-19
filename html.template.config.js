@@ -25,6 +25,12 @@ var dev = [
     filename: 'address.html',
     template: 'html!./template/address.html',
     chunks: ['vendor', 'address']
+  },
+  {
+    title: 'address.component',
+    filename: 'address.component.html',
+    template: 'html!./template/address.component.html',
+    chunks: ['vendor', 'address.component']
   }
 ];
 
@@ -52,6 +58,12 @@ var pro = [
     filename: 'address.html',
     template: 'html!./template/address.html',
     chunks: ['vendor', 'address']
+  },
+  {
+    title: 'address.component',
+    filename: 'address.component.html',
+    template: 'html!./template/address.component.html',
+    chunks: ['vendor', 'address.component']
   }
 ];
 
